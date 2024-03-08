@@ -51,7 +51,7 @@ export const GoogleAuth = () => {
         alignItems:'center'
     }}>
 
-      <GoogleOAuthProvider clientId={c}>
+      <GoogleOAuthProvider clientId={import.meta.env.VITE_REACT_APP_GOOGLE_CLIENT_ID}>
         <GoogleLogin
           onSuccess={(credentialResponse) => {
             const decoded = jwtDecode(credentialResponse.credential);

@@ -159,7 +159,7 @@ const HotelSearchPage = () => {
                            
                          
                           <Link
-                            to={`${baseUrl}hotels/${hotel.id}`}
+                            to={`/hotels/${hotel.id}`}
                             className="mx-5 bg-blue-600 px-5 py-2 text-white rounded-md"
                           >
                             Show Details
