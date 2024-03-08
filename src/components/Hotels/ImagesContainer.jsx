@@ -14,7 +14,7 @@ export const ImagesContainer = ({ hotelId }) => {
     const fetchHotelImages = async () => {
       try {
         const response = await axios.get(
-          `/api/get-hotel-images/${hotelId}/`
+          `${baseUrl}api/get-hotel-images/${hotelId}/`
         );
         const data = response.data;
         console.log(data);

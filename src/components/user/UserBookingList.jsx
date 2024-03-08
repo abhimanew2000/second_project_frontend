@@ -6,6 +6,7 @@ import { RatingFeedbackForm } from "../Hotels/RatingFeedbackForm";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { w3cwebsocket as W3CWebSocket } from 'websocket';
+import { baseUrl } from "../../Utils/urls";
 export const UserBookingList = () => {
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -20,7 +21,7 @@ export const UserBookingList = () => {
   const fetchUserBookings = async () => {
     try {
       const response = await axios.get(
-        "/hotel/booking/user-booking-list/",
+        `${baseUrl}hotel/booking/user-booking-list/`,
         {
           headers: {
             Authorization: `Bearer ${userToken}`,
@@ -46,7 +47,7 @@ export const UserBookingList = () => {
     try {
       await axios
         .patch(
-          `/hotel/booking/cancel/${booking_id}/`,
+          `${baseUrl}hotel/booking/cancel/${booking_id}/`,
           {},
           {
             headers: {

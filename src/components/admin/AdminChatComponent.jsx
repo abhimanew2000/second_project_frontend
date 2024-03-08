@@ -4,6 +4,7 @@ import { w3cwebsocket as W3CWebSocket } from "websocket";
 import { useSelector } from "react-redux";
 import { selectAdminId } from "../../redux/store";
 import { jwtDecode } from "jwt-decode";
+import { baseUrl } from "../../Utils/urls";
 export const AdminChatComponent = () => {
   const [message, setMessage] = useState("");
 
@@ -27,7 +28,7 @@ export const AdminChatComponent = () => {
     const fetchChatMessages = async () => {
       try {
         const response = await axios.get(
-          "/chat/messages/"
+          `${baseUrl}chat/messages/`
         );
         setChatMessages(response.data);
         console.log(response.data,"datttttt")

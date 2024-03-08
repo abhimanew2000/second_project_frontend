@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import axios from '../../Utils/axios';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { baseUrl } from '../../Utils/urls';
 const AdminLoginForm = () => {
   const navigate = useNavigate();
 const dispatch = useDispatch()
@@ -22,7 +23,7 @@ const dispatch = useDispatch()
 
     try {
         console.log('hiiiii')
-      const response = await axios.post('/customadmin/admin-login/', formData);
+      const response = await axios.post(`${baseUrl}customadmin/admin-login/`, formData);
       console.log(response.data,'datat');
       const { token, user_email } = response.data;
       console.log('Access Token:', token.access);

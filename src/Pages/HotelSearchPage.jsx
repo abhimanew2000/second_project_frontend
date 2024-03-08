@@ -57,7 +57,7 @@ const HotelSearchPage = () => {
         setRefresher(true);
 
         const response = await axios.get(
-          `/api/get-hotels/?city=${cityName}&min_price=${priceRange[0]}&max_price=${priceRange[1]}`
+          `${baseUrl}api/get-hotels/?city=${cityName}&min_price=${priceRange[0]}&max_price=${priceRange[1]}`
         );
         const filteredHotels = response.data.hotels.filter((hotel) =>
           selectedAmenities.every((amenity) => {
@@ -96,7 +96,7 @@ const HotelSearchPage = () => {
   const handleAddToWishlist = async (hotelId) => {
     try {
       const response = await axios.post(
-        `/api/add-to-wishlist/`,
+        `${baseUrl}api/add-to-wishlist/`,
         { hotel_id: hotelId }, // Corrected data format
         {
           headers: {

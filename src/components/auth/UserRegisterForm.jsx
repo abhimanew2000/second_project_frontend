@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import axios from "../../Utils/axios";;
 import { useNavigate } from "react-router-dom";
 import { GoogleAuth } from "./GoogleAuth";
+import { baseUrl } from "../../Utils/urls";
+baseUrl
 const UserRegisterForm = () => {
   const navigate = useNavigate();
 
@@ -31,13 +33,13 @@ const UserRegisterForm = () => {
 
     try {
       const response = await axios.post(
-        "/api/user/register/",
+        `${baseUrl}api/user/register/`,
         formData
       );
       navigate("/login");
-      console.log(response.data); // Log the response from the backend
+      console.log("data",response.data); // Log the response from the backend
     } catch (error) {
-      console.error("Registration failed:", error.response.data);
+      console.error("Registration failed:", error.response);
     }
   };
 

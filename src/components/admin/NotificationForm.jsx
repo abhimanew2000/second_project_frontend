@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from '../../Utils/axios';;
 
 import { useSelector } from 'react-redux';
+import { baseUrl } from '../../Utils/urls';
 export const NotificationForm = () => {
 
     const [notificationMessage, setNotificationMessage] = useState('');
@@ -13,7 +14,7 @@ export const NotificationForm = () => {
         
         try {
             await axios.post(
-                '/notification/send-notification/',
+                `${baseUrl}notification/send-notification/`,
                 { notification_message: notificationMessage },
                 {
                     headers: {

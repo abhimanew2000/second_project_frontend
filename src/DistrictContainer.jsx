@@ -1,10 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { baseUrl } from "./Utils/urls";
 export const DistrictContainer = () => {
   const navigate = useNavigate();
 
   const handleClick = (city) => {
-    navigate(`/get-hotels/?city=${city}`);
+    navigate(`${baseUrl}get-hotels/?city=${city}`);
   };
   return (
     <>

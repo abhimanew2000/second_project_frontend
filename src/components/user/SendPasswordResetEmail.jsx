@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
+import { baseUrl } from "../../Utils/urls";
 export const SendPasswordResetEmail = () => {
   const [email, setEmail] = useState("");
   const userToken = localStorage.getItem("usertoken");
@@ -9,7 +10,7 @@ export const SendPasswordResetEmail = () => {
     try {
       // Make a POST request to your backend API for sending a reset email
       const response = await axios.post(
-        "/api/user/send-reset-password-email/",
+        `${baseUrl}api/user/send-reset-password-email/`,
         { email },
         // { headers: { Authorization: `Bearer ${userToken}` } }
       );

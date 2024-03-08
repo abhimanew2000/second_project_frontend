@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import axios from "../Utils/axios";
 import { AdminSidebar } from "../components/admin/AdminSidebar";
 import { useSelector } from "react-redux";
+import { baseUrl } from "../Utils/urls";
 export const AdminHotelRoomList = () => {
   const adminToken = useSelector((state) => state.admin.token);
   const [count,setCount] = useState(0)
@@ -16,7 +17,7 @@ export const AdminHotelRoomList = () => {
   useEffect(() => {
     const fetchHotels = async () => {
       try {
-        const response = await axios.get("/api/hotels/", {
+        const response = await axios.get(`${baseUrl}api/hotels/`, {
           headers: {
             Authorization: `Bearer ${adminToken}`,
           },
@@ -34,7 +35,7 @@ export const AdminHotelRoomList = () => {
   
   const handleDeleteRoomType = async (hotelId, roomTypeId) => {
     try {
-        const response = await axios.delete(`/customadmin/hotel/${hotelId}/room-types/${roomTypeId}/delete/`,{
+        const response = await axios.delete(`${baseUrl}customadmin/hotel/${hotelId}/room-types/${roomTypeId}/delete/`,{
             headers: {
                 Authorization: `Bearer ${adminToken}`,
             },

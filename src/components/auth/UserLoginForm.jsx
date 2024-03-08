@@ -10,6 +10,7 @@ import axios from "../../Utils/axios";
 import { useNavigate } from "react-router-dom";
 import { GoogleAuth } from "./GoogleAuth";
 import { Googlelogin } from "./Glogin";
+import { baseUrl } from "../../Utils/urls";
 const UserLoginForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ const UserLoginForm = () => {
 
     try {
       const response = await axios.post(
-        "/api/user/login/",
+        `${baseUrl}api/user/login/`,
         formData
       );
       console.log(response.data);

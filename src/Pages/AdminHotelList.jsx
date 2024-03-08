@@ -41,7 +41,7 @@ export const AdminHotelList = () => {
     const fetchRoomTypes = async () => {
       try {
         const response = await axios.get(
-          "/customadmin/room-types/",
+          `${baseUrl}customadmin/room-types/`,
           {
             headers: {
               Authorization: `Bearer ${adminToken}`,
@@ -84,7 +84,7 @@ export const AdminHotelList = () => {
     formData.append("hotel", selectedHotelId); // Use selectedHotelId instead of hotelId
     formData.append("image", newRoom.image);
     axios
-      .post("/customadmin/rooms/", formData, {
+      .post(`${baseUrl}customadmin/rooms/`, formData, {
         headers: {
           Authorization: `Bearer ${adminToken}`,
           "Content-Type": "multipart/form-data",

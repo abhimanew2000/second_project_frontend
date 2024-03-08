@@ -2,6 +2,7 @@ import axios from "../../Utils/axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { baseUrl } from "../../Utils/urls";
 export const HotelRoomTypeTable = ({ hotelId }) => {
   const searchDetails = useSelector((state) => state.searchDetails);
   const userToken = localStorage.getItem("usertoken");
@@ -21,7 +22,7 @@ export const HotelRoomTypeTable = ({ hotelId }) => {
     const fetchHotelRooms = async () => {
       try {
         const response = await axios.get(
-          `/customadmin/about/${hotelId}`
+          `${baseUrl}customadmin/about/${hotelId}`
         );
         setRooms(response.data.rooms);
       } catch (error) {
@@ -38,7 +39,7 @@ export const HotelRoomTypeTable = ({ hotelId }) => {
     const fetchRoomTypes = async () => {
       try {
         const response = await axios.get(
-          `/api/${hotelId}/roomtypes`
+          `${baseUrl}api/${hotelId}/roomtypes`
         );
         console.log(response.data, "response");
         setRoomTypes(response.data);

@@ -10,6 +10,7 @@ import { HotelTopoptions } from '../components/Hotels/HotelTopoptions';
 import { ImagesContainer } from '../components/Hotels/ImagesContainer';
 import {HotelRoomTypeTable} from '../components/Hotels/HotelRoomTypeTable';  // Correct import
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { baseUrl } from '../Utils/urls';
 
 export const HotelDetailPage = () => {
     const { hotelId } = useParams();
@@ -19,7 +20,7 @@ export const HotelDetailPage = () => {
     useEffect(() => {
       const fetchHotelDetails = async () => {
         try {
-          const response = await axios.get(`/api/hotels/about/${hotelId}`);
+          const response = await axios.get(`${baseUrl}api/hotels/about/${hotelId}`);
           setHotelDetails(response.data.hotel);
         } catch (error) {
           console.error("Error fetching hotel details:", error);

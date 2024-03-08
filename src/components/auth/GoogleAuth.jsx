@@ -4,6 +4,7 @@ import {jwtDecode} from "jwt-decode"; // Correct import statement
 import axios from "../../Utils/axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { baseUrl } from "../../Utils/urls";
 import {
   setUserName,
   setAuthentication,
@@ -16,7 +17,7 @@ export const GoogleAuth = () => {
   const registerUserWithGoogle = async (googleData) => {
     try {
       const response = await axios.post(
-        "/api/user/register/google/",
+        `${baseUrl}api/user/register/google/`,
         {
           google_oauth: googleData,
         }

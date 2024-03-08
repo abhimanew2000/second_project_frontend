@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import axios from "../../Utils/axios";
+import { baseUrl } from "../../Utils/urls";
 export const ResetPasswordComponent = () => {
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
@@ -17,7 +18,7 @@ export const ResetPasswordComponent = () => {
         return;
       }
       const response = await axios.post(
-        `/api/user/reset-password/${uid}/${token}/`,
+        `${baseUrl}api/user/reset-password/${uid}/${token}/`,
         { password, password2 },
         {}
         // { headers: { Authorization: `Bearer ${userToken}` } }

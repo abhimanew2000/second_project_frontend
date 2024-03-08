@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { UserNavbar } from "../../UserNavbar";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import { baseUrl } from "../../Utils/urls";
 const userTokenData = localStorage.getItem("usertoken");
 console.log(userTokenData, "USERTOKEN");
 const UserProfile = () => {
@@ -15,7 +16,7 @@ const UserProfile = () => {
     const fetchUserProfile = async () => {
       try {
         const response = await axios.get(
-          "/api/user/profile/",
+          `${baseUrl}api/user/profile/`,
           {
             headers: {
               Authorization: `Bearer ${userTokenData}`,

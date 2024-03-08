@@ -5,6 +5,7 @@ import axios from "../Utils/axios";
 import { AdminSidebar } from "../components/admin/AdminSidebar";
 import { useSelector } from "react-redux";
 import { AddBookingForm } from "../components/admin/AddbookingForm";
+import { baseUrl } from "../Utils/urls";
 export const HotelBookingList = () => {
   const [bookings, setBookings] = useState([]);
   const adminToken = useSelector((state) => state.admin.token);
@@ -15,7 +16,7 @@ export const HotelBookingList = () => {
     try {
       // Make a request to your backend API to fetch hotel bookings
       const response = await axios.get(
-        "/customadmin/hotel-bookinglist/",
+        `${baseUrl}customadmin/hotel-bookinglist/`,
         {
 
         },
@@ -46,7 +47,7 @@ export const HotelBookingList = () => {
     console.log(booking_id, "BOOKINGID");
     try {
       await axios.patch(
-        `/customadmin/cancel-booking/${booking_id}/`,
+        `${baseUrl}customadmin/cancel-booking/${booking_id}/`,
         {
 
         },

@@ -34,11 +34,10 @@ import { RatingFeedbackForm } from './components/Hotels/RatingFeedbackForm';
 import MapComponent from './components/admin/MapComponent';
 import WishlistPage from './Pages/Wishlist';
 import { GoogleAuth } from './components/auth/GoogleAuth';
-import { Message } from './Pages/Message';
 import { MessageDetail } from './Pages/MessageDetail';
 import { SendNotification } from './components/admin/SendNotification';
 import { ReceiveNotification } from './components/user/ReceiveNotification';
-import ChatRoom from './components/user/ChatRoom';
+// import ChatRoom from './components/user/ChatRoom';
 import ChatComponent from './components/user/ChatComponent';
 import { AdminChatComponent } from './components/admin/AdminChatComponent';
 // import PrivateRoute from './redux/PrivateRoute';
@@ -74,7 +73,7 @@ const App = () => {
           <Route path="/add-rating/:hotelId" element={<RatingFeedbackForm />} />
           <Route path="/map" element={<MapComponent />} />
           <Route path="/wishlist" element={<WishlistPage />} />
-          <Route path="/inbox" element={<Message />} />
+          {/* <Route path="/inbox" element={<Message />} /> */}
           <Route path="/inbox/:id" element={<MessageDetail />} />
           <Route path="/send-notification" element={<SendNotification/>} />
           <Route path="/notification" element={<ReceiveNotification/>} />

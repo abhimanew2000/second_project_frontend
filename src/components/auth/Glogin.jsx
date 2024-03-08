@@ -4,7 +4,7 @@ import axios from "../../Utils/axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import {jwtDecode} from "jwt-decode"; 
-
+import { baseUrl } from "../../Utils/urls";
 
 import {
   setUserName,
@@ -21,7 +21,7 @@ export const Googlelogin = () => {
     try {
       console.log(googleData, "DATA");
       const response = await axios.post(
-        "api/user/login/google/",
+        `${baseUrl}api/user/login/google/`,
         {
           google_oauth: googleData,
         }

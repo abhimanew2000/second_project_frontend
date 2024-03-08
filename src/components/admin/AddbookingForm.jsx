@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import axios from '../../Utils/axios';
 import { selectAdminId } from '../../redux/store';
+import { baseUrl } from '../../Utils/urls';
 
 export const AddBookingForm = ({ onSubmit }) => {
     const adminUserId = useSelector(selectAdminId);
@@ -40,7 +41,7 @@ export const AddBookingForm = ({ onSubmit }) => {
   }, []);
   const fetchRoomTypes = async () => {
     try {
-      const response = await axios.get('/api/roomtypes/',
+      const response = await axios.get(`${baseUrl}api/roomtypes/`,
       {
         headers: {
           Authorization: `Bearer ${adminToken}`,
@@ -55,7 +56,7 @@ export const AddBookingForm = ({ onSubmit }) => {
 
   const fetchHotels = async () => {
     try {
-      const response = await axios.get('/api/hotels/',
+      const response = await axios.get(`${baseUrl}api/hotels/`,
       {
         headers: {
           Authorization: `Bearer ${adminToken}`,
@@ -69,7 +70,7 @@ export const AddBookingForm = ({ onSubmit }) => {
   };
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('/customadmin/user-list/', {
+      const response = await axios.get(`${baseUrl}customadmin/user-list/`, {
         headers: {
           Authorization: `Bearer ${adminToken}`,
         },
@@ -84,7 +85,7 @@ export const AddBookingForm = ({ onSubmit }) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        '/customadmin/bookings/', // Adjust the endpoint URL as per your backend API
+        `${baseUrl}customadmin/bookings/`, // Adjust the endpoint URL as per your backend API
         {
             ...formData,
             user: formData.user, // Set the user to the selected user's ID

@@ -20,7 +20,7 @@ const ChatComponent = () => {
     const fetchBookingDetails = async () => {
       try {
         const response = await axios.get(
-          `/hotel/booking/hotel-details/${bookingId}`
+          `${baseUrl}hotel/booking/hotel-details/${bookingId}`
         );
         const { hotel } = response.data; // Assuming the hotel information is nested under the 'hotel' key
         setHotelImage(hotel.image); // Assuming 'image' is the field containing the hotel image URL
