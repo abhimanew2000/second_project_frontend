@@ -10,7 +10,7 @@ export const MessageDetail = () => {
     const userTokenData = localStorage.getItem("usertoken");
     const decodedToken = jwtDecode(userTokenData)
     const user_id = decodedToken.user_id
-    const baseURL="http://127.0.0.1:8000/api/user/"
+    const baseURL=`${baseUrl}api/user/`
     const[message,setMessage]= useState([])
     const[messages,setMessages]= useState([])
     

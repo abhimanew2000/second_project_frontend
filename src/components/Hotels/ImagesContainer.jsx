@@ -70,7 +70,7 @@ export const ImagesContainer = ({ hotelId }) => {
           <img
             className="h-full w-full"
             key={index}
-            src={`http://127.0.0.1:8000/${imageUrl}`}
+            src={`${baseUrl}${imageUrl}`}
             alt={`Room ${index + 1}`}
           />
         ))}

@@ -32,7 +32,7 @@ export const UserDetails = () => {
 
   const handleToggleUser = (userId, isActive) => {
     const action = isActive ? "block" : "unblock";
-    const path = `http://127.0.0.1:8000/customadmin/admin/user/${userId}/${action}/`;
+    const path = `${baseUrl}customadmin/admin/user/${userId}/${action}/`;
   
     axios
       .put(path, {})

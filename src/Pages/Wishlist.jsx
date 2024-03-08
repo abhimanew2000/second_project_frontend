@@ -11,7 +11,7 @@ const WishlistPage = () => {
     const fetchWishlist = async () => {
       try {
         const response = await axios.get(
-          "http://127.0.0.1:8000/api/get-wishlist/",  // Replace with your actual API endpoint
+          `${baseUrl}api/get-wishlist/`,  // Replace with your actual API endpoint
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem('usertoken')}`,
@@ -31,7 +31,7 @@ const WishlistPage = () => {
   const handleRemoveFromWishlist = async (hotelId) => {
     try {
       const response = await axios.post(
-        'http://127.0.0.1:8000/api/remove-from-wishlist/',
+        `${baseUrl}api/remove-from-wishlist/`,
         { hotel_id: hotelId },
         {
           headers: {
@@ -75,7 +75,7 @@ const WishlistPage = () => {
                 >
                   <div className="mt-4 flex items-center">
                     <img
-                      src={`http://127.0.0.1:8000${hotel.image}`}
+                      src={`${baseUrl}${hotel.image}`}
                       alt={hotel.name}
                       className="w-44 h-44 object-cover rounded-md mr-4"
                     />

@@ -49,7 +49,7 @@ export const AdminHotelDetails = () => {
     const fetchHotelDetails = async () => {
       try {
         const response = await fetch(
-          `http://127.0.0.1:8000/customadmin/single-hotel-detail/${hotelId}/`,
+          `${baseUrl}customadmin/single-hotel-detail/${hotelId}/`,
           {
             headers: {
               Authorization: `Bearer ${adminToken}`,
@@ -80,7 +80,7 @@ export const AdminHotelDetails = () => {
     try {
       console.log(selectedDates, "selected datesss");
       const response = await fetch(
-        `http://127.0.0.1:8000/customadmin/update-not-available-dates/${hotelId}/${roomTypeId}/`,
+        `${baseUrl}customadmin/update-not-available-dates/${hotelId}/${roomTypeId}/`,
         {
           method: "POST",
           headers: {

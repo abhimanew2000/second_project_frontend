@@ -4,6 +4,7 @@ import axios from "axios";
 import { useSelector } from "react-redux"; // Import the useSelector hook
 import { UserNavbar } from "../UserNavbar";
 import { useNavigate } from "react-router-dom";
+import { baseUrl } from "../Utils/urls";
 export const HotelCheckoutPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -23,7 +24,7 @@ export const HotelCheckoutPage = () => {
     const fetchHotelDetails = async () => {
       try {
         const response = await axios.get(
-          `http://127.0.0.1:8000/api/hotels/about/${hotelId}`
+          `${baseUrl}api/hotels/about/${hotelId}`
         );
         if (response.data.hotel) {
           setHotelDetails(response.data.hotel);
@@ -93,7 +94,7 @@ export const HotelCheckoutPage = () => {
     console.log(totalPrice,roomType,hotelId)
     console.log(userTokenData,"USERRRRRRRR")
       const response = await axios.post(
-        "http://127.0.0.1:8000/hotel/booking/initiate_razorpay_payment/",
+        `${baseUrl}hotel/booking/initiate_razorpay_payment/`,
        
           data,
         {
@@ -170,7 +171,7 @@ export const HotelCheckoutPage = () => {
       console.log(totalPrice)
       console.log(user.name)
         const response = await axios.post(
-          "http://127.0.0.1:8000/hotel/booking/confirm_booking/",
+          `${baseUrl}hotel/booking/confirm_booking/`,
           
           {
               razorpaySignature: razorpaySignature,

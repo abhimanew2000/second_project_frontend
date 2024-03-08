@@ -9,13 +9,13 @@ const HotelList = () => {
   const [hotels, setHotels] = useState([]);
   const userTokenData = localStorage.getItem('usertoken')
 
-  const HOTEL_IMAGE_DIR_PATH = "http://127.0.0.1:8000/api/";
+  const HOTEL_IMAGE_DIR_PATH = `${baseUrl}api/`;
   console.log(userTokenData,"USER")
 
   useEffect(() => {
     // Fetch hotels from the API
     axios
-      .get("http://127.0.0.1:8000/api/hotels/", {
+      .get(`${baseUrl}api/hotels/`, {
         headers: {
           Authorization: `Bearer ${userTokenData}`,
         },
