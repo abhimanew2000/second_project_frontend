@@ -157,7 +157,7 @@ export const HotelCheckoutPage = () => {
     
   };
   const confirmBooking = async (razorpaySignature, razorpayPaymentId,hotel) => {
-    const csrfToken = document.cookie.split('; ').find(row => row.startsWith('csrftoken=')).split('=')[1];
+    // const csrfToken = document.cookie.split('; ').find(row => row.startsWith('csrftoken=')).split('=')[1];
 
     try {
       console.log("Inside confirmBooking function");
