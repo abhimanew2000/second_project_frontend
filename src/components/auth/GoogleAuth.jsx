@@ -24,7 +24,6 @@ export const GoogleAuth = () => {
           google_oauth: googleData,
         }
       );
-  
       console.log(response.data);
       if (response.data.msg === "Registration successful") {
       dispatch(setUserName(googleData.given_name));
@@ -32,14 +31,11 @@ export const GoogleAuth = () => {
       dispatch(setUserEmail(googleData.email));
         navigate("/");
       }
-
       // Handle the response, redirect, etc.
     } catch (error) {
       console.error("Error during registration:", error);
     }
   };
-
-  
   return (
     <>
     <div className="my-5"
@@ -51,16 +47,13 @@ export const GoogleAuth = () => {
         alignItems:'center'
     }}>
 
-      <GoogleOAuthProvider clientId={import.meta.env.VITE_REACT_APP_GOOGLE_CLIENT_ID}>
+      <GoogleOAuthProvider clientId={c}>
         <GoogleLogin
           onSuccess={(credentialResponse) => {
             const decoded = jwtDecode(credentialResponse.credential);
-
             console.log(decoded)
-
             console.log(credentialResponse);
             registerUserWithGoogle(decoded);
-
 
           }}
           onError={() => {
