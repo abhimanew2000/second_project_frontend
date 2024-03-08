@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import DatePicker, { DateObject } from "react-multi-date-picker";
 import "react-datepicker/dist/react-datepicker.css";
+import { baseUrl } from "../Utils/urls";
 // Create AdminHotelDetails component
 export const AdminHotelDetails = () => {
   // Use useParams to get the hotel ID from the URL

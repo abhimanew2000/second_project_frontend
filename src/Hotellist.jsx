@@ -5,6 +5,7 @@ import axios from "axios";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { baseUrl } from "./Utils/urls";
 const HotelList = () => {
   const [hotels, setHotels] = useState([]);
   const userTokenData = localStorage.getItem('usertoken')

@@ -3,7 +3,7 @@ import axios from "axios";
 import { UserNavbar } from "../UserNavbar";
 import { Link } from "react-router-dom";
 import { toast } from 'react-toastify';
-
+import { baseUrl } from "./Utils/urls";
 const WishlistPage = () => {
   const [wishlistHotels, setWishlistHotels] = useState([]);
   const userTokenData = localStorage.getItem('usertoken')

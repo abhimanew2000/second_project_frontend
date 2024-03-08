@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "../../Utils/axios";
 import { AdminSidebar } from "./AdminSidebar";
 import { useSelector } from "react-redux";
+import { baseUrl } from "./Utils/urls";
 export const UserDetails = () => {
   const adminToken = useSelector((state) => state.admin.token);
 
