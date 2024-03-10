@@ -39,7 +39,7 @@ export const AdminChatComponent = () => {
 
     const fetchChat = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:8000/chat/messages/");
+        const response = await axios.get(`${baseUrl}chat/messages/`);
         setChatMessages(response.data);
         console.log(response.data, "rooms");
       } catch (error) {
