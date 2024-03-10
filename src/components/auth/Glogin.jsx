@@ -54,6 +54,7 @@ export const Googlelogin = () => {
         alignItems: "center",
       }}
     >
+      
       <GoogleOAuthProvider clientId="426249040470-q0nniqiqvbstkchn5lbupvp4alg3ual3.apps.googleusercontent.com">
         <GoogleLogin
           onSuccess={(credentialResponse) => {
