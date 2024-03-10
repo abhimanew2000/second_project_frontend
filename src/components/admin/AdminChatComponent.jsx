@@ -218,7 +218,7 @@ export const AdminChatComponent = () => {
               <div class="font-semibold text-xl py-4">
                 {hotelDetails.name}
                 <img
-                  src={`${baseUrl}${hotelDetails.image}`}
+                  src={`https://abhimanew.live${hotelDetails.image}`}
                   alt="Hotel"
                   className="object-cover rounded-xl h-64"
                 />
