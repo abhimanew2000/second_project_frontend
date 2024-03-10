@@ -37,7 +37,15 @@ export const AdminChatComponent = () => {
       }
     };
 
-  
+    const fetchChat = async () => {
+      try {
+        const response = await axios.get("http://127.0.0.1:8000/chat/messages/");
+        setChatMessages(response.data);
+        console.log(response.data, "rooms");
+      } catch (error) {
+        console.error("Error fetching chat messages:", error);
+      }
+    };
 
   useEffect(() => {
     fetchChatMessages();
@@ -72,7 +80,7 @@ export const AdminChatComponent = () => {
       
       setFilteredMessages((prevMessages) => [...prevMessages, data.message]);
       console.log("Updated filteredMessages state:", filteredMessages);
-      fetchChatMessages()
+      fetchChat()
       handlefetch(bookingId)
     };
   };
