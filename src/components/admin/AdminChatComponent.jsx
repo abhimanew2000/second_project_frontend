@@ -23,8 +23,6 @@ export const AdminChatComponent = () => {
 
   
 
-  useEffect(() => {
-    // Fetch chat messages from the server
     const fetchChatMessages = async () => {
       try {
         const response = await axios.get(
@@ -39,15 +37,25 @@ export const AdminChatComponent = () => {
       }
     };
 
+  
+
+  useEffect(() => {
     fetchChatMessages();
-  }, []);
+
+  }, [])
+
+  const handlefetch =(bookingId)=>{
+    if (!bookingId) return;
+
+  }
 
 
   const connectToWebSocket = (bookingId) => {
     if (!bookingId) return;
 
     const newClient = new W3CWebSocket(
-      `wss://abhimanew.live/ws/chat/${bookingId}/`
+      // `wss://abhimanew.live/ws/chat/${bookingId}/`
+       `ws://localhost:8000/ws/chat/${bookingId}/`
     );
     setClient(newClient);
 
@@ -58,12 +66,21 @@ export const AdminChatComponent = () => {
 
     newClient.onmessage = (message) => {
       const data = JSON.parse(message.data);
-      console.log("zzzzzzzzzzz",data)
+      console.log("Received message:", data);
+      console.log("Current filteredMessages state:", filteredMessages);
+
       
       setFilteredMessages((prevMessages) => [...prevMessages, data.message]);
+      console.log("Updated filteredMessages state:", filteredMessages);
+      fetchChatMessages()
+      handlefetch(bookingId)
     };
   };
   console.log('1111111111111111111',filteredMessages)
+
+ 
+  
+  
   
 
   const sendMessage = () => {

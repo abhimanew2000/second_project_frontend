@@ -48,7 +48,8 @@ const ChatComponent = () => {
     if (!bookingId) return;
 
     const newClient = new W3CWebSocket(
-      `wss://abhimanew.live/ws/chat/${bookingId}/`
+      // `wss://abhimanew.live/ws/chat/${bookingId}/`
+       `ws://localhost:8000/ws/chat/${bookingId}/`
     );
     setClient(newClient);
 
@@ -108,7 +109,6 @@ const ChatComponent = () => {
               </div>
               <div class="ml-2 font-bold text-2xl">QuickChat</div>
             </div>
-
             <div class="flex flex-col items-center bg-indigo-100 border border-gray-200 mt-4 w-full py-6 px-4 rounded-lg">
               <div class="h-20 w-20 rounded-full border overflow-hidden">
                 <img src={`${baseUrl}media/${hotelImage}`} alt="Avatar" class="h-full w-full" />
