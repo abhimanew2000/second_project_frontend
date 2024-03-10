@@ -13,8 +13,7 @@ import {
 export const GoogleAuth = () => {
   const navigate=useNavigate()
   const dispatch = useDispatch();
-  const c = import.meta.env.VITE_REACT_APP_GOOGLE_CLIENT_ID
-  console.log(c,"CCCCCCC")
+
 
   const registerUserWithGoogle = async (googleData) => {
     try {
