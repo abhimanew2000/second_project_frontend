@@ -47,7 +47,7 @@ export const GoogleAuth = () => {
         alignItems:'center'
     }}>
 
-      <GoogleOAuthProvider clientId={c}>
+      <GoogleOAuthProvider clientId="426249040470-q0nniqiqvbstkchn5lbupvp4alg3ual3.apps.googleusercontent.com">
         <GoogleLogin
           onSuccess={(credentialResponse) => {
             const decoded = jwtDecode(credentialResponse.credential);
