@@ -4,7 +4,6 @@ import axios from "../../Utils/axios";;
 import { useNavigate } from "react-router-dom";
 import { GoogleAuth } from "./GoogleAuth";
 import { baseUrl } from "../../Utils/urls";
-baseUrl
 const UserRegisterForm = () => {
   const navigate = useNavigate();
 
