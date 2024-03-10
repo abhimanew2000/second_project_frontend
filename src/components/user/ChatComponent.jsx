@@ -156,7 +156,7 @@ const ChatComponent = () => {
                 <div class="flex flex-col h-full">
                   {chatMessages.map((msg, index) => (
                     <div key={index} className="grid grid-cols-12 gap-y-2">
-                      {msg.sender === 16 ? (
+                      {msg.sender === 1 ? (
                         <div className="col-start-1 col-end-8 p-3 rounded-lg">
                           <div className="flex flex-row items-center">
                             <div className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0">
