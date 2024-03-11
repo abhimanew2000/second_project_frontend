@@ -13,6 +13,7 @@ export const AdminChatComponent = () => {
   const [Messages, setMessages] = useState([]);
   const [filteredMessages, setFilteredMessages] = useState([]);
   const [hotelDetails, setHotelDetails] = useState(null);
+  const [uniqueSenders, setUniqueSenders] = useState([]);
 
   const [client, setClient] = useState(null);
 
@@ -57,6 +58,18 @@ export const AdminChatComponent = () => {
 
   }
 
+
+  useEffect(() => {
+    const senders = chatMessages.reduce((acc, message) => {
+      if (!acc.includes(message.sender__name) && message.sender__name !== 'admin') {
+        return [...acc, message.sender__name,message.booking_id];
+      }
+      return acc;
+    }, []);
+
+    setUniqueSenders(senders);
+    console.log(uniqueSenders,"uniquesendersss")
+  }, [chatMessages]);
 
   const connectToWebSocket = (bookingId) => {
     if (!bookingId) return;
@@ -170,7 +183,7 @@ export const AdminChatComponent = () => {
               /> */}
             </div>
             <div className="w-full">
-            {chatMessages.map((message, index) => {
+            {/* {chatMessages.map((message, index) => {
     if (message.sender__name !== 'admin') {
         // Check if the current message has the same sender as the previous one
         const previousMessage = chatMessages[index - 1];
@@ -187,16 +200,23 @@ export const AdminChatComponent = () => {
                 </div>
             );
         } else {
-            // If the sender is the same as the previous message, render only the message
             return (
                 <div key={message.id} className="flex flex-col mb-4">
-                    {/* <span className="text-gray-500">{message.message}...</span> */}
                 </div>
             );
         }
     }
     return null; // Skip rendering if the sender is 'admin'
-})}
+})} */}
+{uniqueSenders.map((senderName) => (
+              <div key={senderName} className="flex flex-col mb-4">
+                <div className="text-lg font-semibold" onClick={() => handleBookingClick(senderName)}>
+                  {senderName}
+                </div>
+                {/* You may add more details related to sender if needed */}
+              </div>
+            ))}
+
             </div>
           </div>
         </div>

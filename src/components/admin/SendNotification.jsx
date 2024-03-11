@@ -10,8 +10,8 @@ export const SendNotification = () => {
         e.preventDefault();
     
         // Initialize WebSocket client
-        // const client = new W3CWebSocket('wss:///ws/notification/room_name/');
-         const client = new W3CWebSocket('ws://localhost:8000/ws/notification/room_name/');
+        const client = new W3CWebSocket('wss:///ws/notification/room_name/');
+        //  const client = new W3CWebSocket('ws://localhost:8000/ws/notification/room_name/');
     
         client.onopen = () => {
             console.log('WebSocket Client Connected');
