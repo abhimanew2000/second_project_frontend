@@ -149,7 +149,7 @@ export const AdminHotelList = () => {
     };
     console.log("Request Headers:", headers);
 
-    const apiUrl = "/customadmin/room-types/";
+    const apiUrl = `${baseUrl}customadmin/room-types/`;
     axios
       .post(apiUrl, formData, {
         headers: {
@@ -206,7 +206,7 @@ export const AdminHotelList = () => {
   console.log(newHotel?.amenities, "AMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM");
   useEffect(() => {
     axios
-      .get("/customadmin/hotel-details/", {
+      .get(`${baseUrl}customadmin/hotel-details/`, {
         headers: {
           Authorization: `Bearer ${adminToken}`,
           "Content-Type": "application/json",
@@ -236,7 +236,7 @@ export const AdminHotelList = () => {
 
     console.log(formData, "FORMDATA");
     axios
-      .post("customadmin/hotel-details/", formData, {
+      .post(`${baseUrl}customadmin/hotel-details/`, formData, {
         headers: {
           Authorization: `Bearer ${adminToken}`,
           "Content-Type": "multipart/form-data",
