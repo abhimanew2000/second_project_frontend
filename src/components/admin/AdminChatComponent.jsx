@@ -121,6 +121,14 @@ export const AdminChatComponent = () => {
     fetchHotelDetails(booking_id);
   };
 
+  useEffect(() => {
+    if (selectedBooking) {
+      connectToWebSocket(selectedBooking);
+      fetchHotelDetails(selectedBooking);
+    }
+  }, [selectedBooking]);
+
+
   const fetchHotelDetails = async (bookingId) => {
     try {
       const response = await axios.get(
