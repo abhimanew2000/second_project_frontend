@@ -61,14 +61,14 @@ export const AdminChatComponent = () => {
 
   useEffect(() => {
     const senders = chatMessages.reduce((acc, message) => {
-      if (!acc.includes(message.sender__name) && message.sender__name !== 'admin') {
-        return [...acc, message.sender__name,message.booking_id];
+      if (!acc[message.sender__name] && message.sender__name !== 'admin') {
+        acc[message.sender__name] = message.booking_id;
       }
       return acc;
-    }, []);
-
+    }, {});
+  
     setUniqueSenders(senders);
-    console.log(uniqueSenders,"uniquesendersss")
+    console.log(uniqueSenders, "uniquesendersss");
   }, [chatMessages]);
 
   const connectToWebSocket = (bookingId) => {
@@ -183,40 +183,18 @@ export const AdminChatComponent = () => {
               /> */}
             </div>
             <div className="w-full">
-            {/* {chatMessages.map((message, index) => {
-    if (message.sender__name !== 'admin') {
-        // Check if the current message has the same sender as the previous one
-        const previousMessage = chatMessages[index - 1];
-        const sameSenderAsPrevious = previousMessage && previousMessage.sender__name === message.sender__name;
-        
-        // If the sender is different from the previous message, render the sender's name
-        if (!sameSenderAsPrevious) {
-            return (
-                <div key={message.id} className="flex flex-col mb-4">
-                    <div className="text-lg font-semibold" onClick={() => handleBookingClick(message.booking_id)}>
-                        {message.sender__name}
-                    </div>
-                    <span className="text-gray-500">{message.message}</span>
-                </div>
-            );
-        } else {
-            return (
-                <div key={message.id} className="flex flex-col mb-4">
-                </div>
-            );
-        }
-    }
-    return null; // Skip rendering if the sender is 'admin'
-})} */}
-{uniqueSenders.map((senderName) => (
-              <div key={senderName} className="flex flex-col mb-4">
-                <div className="text-lg font-semibold" onClick={() => handleBookingClick(senderName)}>
-                  {senderName}
-                </div>
-                {/* You may add more details related to sender if needed */}
-              </div>
-            ))}
-
+            
+{Object.keys(uniqueSenders).map((senderName) => (
+  <div key={senderName} className="flex flex-col mb-4">
+    <div className="text-lg font-semibold" onClick={() => handleBookingClick(uniqueSenders[senderName])}>
+      {senderName}
+    </div>
+    <span className="text-gray-500">
+      {uniqueSenders[senderName]}
+    </span>
+    {/* You may add more details related to sender if needed */}
+  </div>
+))}
             </div>
           </div>
         </div>

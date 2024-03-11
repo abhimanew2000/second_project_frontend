@@ -19,14 +19,16 @@ export const SendNotification = () => {
     
             // Once connected, send the notification message
             client.send(JSON.stringify({ message: notificationMessage }));
+           
+
         };
     
         client.onmessage = (message) => {
             const notificationData = JSON.parse(message.data);
             console.log('Received notification:', notificationData);
-            toast.success("Notification Sended")
             // Handle received notifications as needed
         };
+
     };
     
     return (

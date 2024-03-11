@@ -4,8 +4,8 @@ import { w3cwebsocket as W3CWebSocket } from 'websocket';
 const ChatRoom = ({ roomName, username }) => {
     const [messages, setMessages] = useState([]);
     const [inputMessage, setInputMessage] = useState('');
-    // const client = new W3CWebSocket(`wss://abhimanew.live/ws/chat/${roomName}/`);
-    const client = new W3CWebSocket(`ws://localhost:8000/ws/chat/${roomName}/`);
+    const client = new W3CWebSocket(`wss://abhimanew.live/ws/chat/${roomName}/`);
+    // const client = new W3CWebSocket(`ws://localhost:8000/ws/chat/${roomName}/`);
 
     useEffect(() => {
         client.onopen = () => {
