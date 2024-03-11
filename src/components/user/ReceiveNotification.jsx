@@ -6,8 +6,8 @@ export const ReceiveNotification = () => {
     const [notifications, setNotifications] = useState([]);
 
     useEffect(() => {
-        // const client = new W3CWebSocket('wss://abhimanew.live/ws/notification/');
-        const client = new W3CWebSocket('ws://localhost/ws/notification/');
+        const client = new W3CWebSocket('wss://abhimanew.live/ws/notification/');
+        // const client = new W3CWebSocket('ws://localhost/ws/notification/');
         
         client.onopen = () => {
             console.log('WebSocket Client Connected');
