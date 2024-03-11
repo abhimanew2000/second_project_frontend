@@ -75,7 +75,7 @@ const WishlistPage = () => {
                 >
                   <div className="mt-4 flex items-center">
                     <img
-                      src={`${baseUrl}${hotel.image}`}
+                      src={`https://abhimanew.live${hotel.image}`}
                       alt={hotel.name}
                       className="w-44 h-44 object-cover rounded-md mr-4"
                     />

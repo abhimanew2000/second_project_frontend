@@ -4,6 +4,7 @@ import axios from '../../Utils/axios';
 import { toast } from "react-toastify";
 import { UserNavbar } from '../../UserNavbar';
 import { useNavigate } from 'react-router-dom';
+import { baseUrl } from '../../Utils/urls';
 const ChangePasswordComponent = () => {
     const navigate = useNavigate()
   const [password, setPassword] = useState('');
@@ -18,7 +19,7 @@ const ChangePasswordComponent = () => {
       console.log("this is working")
       // Make a POST request to your backend API for changing the password
       const response = await axios.post(
-        '/api/user/changepassword/',
+        `${baseUrl}api/user/changepassword/`,
         { password, password2 },
         { headers: { Authorization: `Bearer ${userToken}` } }
       );
