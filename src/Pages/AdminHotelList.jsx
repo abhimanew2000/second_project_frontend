@@ -310,6 +310,8 @@ export const AdminHotelList = () => {
   };
 
   const handleUpdateHotel = (id) => {
+    e.preventDefault(); 
+
     const url = `${baseUrl}customadmin/hotel-details/${id}/update/`;
 
     const formData = new FormData();
