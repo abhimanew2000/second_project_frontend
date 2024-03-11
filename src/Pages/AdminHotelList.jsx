@@ -236,7 +236,7 @@ export const AdminHotelList = () => {
 
     console.log(formData, "FORMDATA");
     axios
-      .post(`${baseUrl}customadmin/hotel-details/`, formData, {
+      .post("customadmin/hotel-details/", formData, {
         headers: {
           Authorization: `Bearer ${adminToken}`,
           "Content-Type": "multipart/form-data",
