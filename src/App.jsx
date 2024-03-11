@@ -51,7 +51,7 @@ const App = () => {
           <Route path='/booking-list' element={<HotelBookingList/>}/>
           <Route path='/rooms' element={<AdminHotelRoomList/>}/>
           <Route path='/get-hotels' element={<HotelSearchPage/>}/>
-          {/* <Route path='/customadmin/hotel-list' element={<AdminHotelList/>}/> */}
+          <Route path='/customadmin/hotel-list' element={<AdminHotelList/>}/>
           <Route path="/hotel-search/:city" element={<HotelSearchPage/>} />
           <Route path="/hotels/:hotelId" element={<HotelDetailPage/>} />
           <Route path="/districts" element={<DistrictContainer/>} />
@@ -63,7 +63,7 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/admin/dashboard" element={<AdminHomePage/>} />
           <Route path="/admin/user-list" element={<UserDetails/>} />
-          <Route path="/admin/hotel-list" element={<AdminHotelList/>} />
+          {/* <Route path="/admin/hotel-list" element={<AdminHotelList/>} /> */}
           <Route path="/user/profile" element={<UserProfile/>} />
           <Route path="/user/bookings" element={<UserBookingList/>} />
           <Route path="/changepassword" element={<ChangePasswordComponent/>} />
