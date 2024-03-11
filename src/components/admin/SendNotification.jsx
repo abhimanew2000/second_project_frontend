@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { w3cwebsocket as W3CWebSocket } from 'websocket';
 import { useSelector } from 'react-redux';
 import { AdminSidebar } from './AdminSidebar';
+import { toast } from 'react-toastify';
 export const SendNotification = () => {
     const [notificationMessage, setNotificationMessage] = useState('');
     const adminToken = useSelector((state) => state.admin.token);
@@ -23,6 +24,7 @@ export const SendNotification = () => {
         client.onmessage = (message) => {
             const notificationData = JSON.parse(message.data);
             console.log('Received notification:', notificationData);
+            toast.success("Notification Sended")
             // Handle received notifications as needed
         };
     };
