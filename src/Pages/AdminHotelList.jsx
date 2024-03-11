@@ -40,15 +40,12 @@ export const AdminHotelList = () => {
   useEffect(() => {
     const fetchRoomTypes = async () => {
       try {
-        const response = await axios.get(
-          `${baseUrl}customadmin/room-types/`,
-          {
-            headers: {
-              Authorization: `Bearer ${adminToken}`,
-              "Content-Type": "application/json", // Specify the content type
-            },
-          }
-        );
+        const response = await axios.get(`${baseUrl}customadmin/room-types/`, {
+          headers: {
+            Authorization: `Bearer ${adminToken}`,
+            "Content-Type": "application/json", // Specify the content type
+          },
+        });
         console.log(response, "response");
         setRoomTypes(response.data || []);
       } catch (error) {
@@ -102,7 +99,6 @@ export const AdminHotelList = () => {
           amenities: "",
           room_type: "",
           image: null,
-
         });
         setIsRoomModalOpen(false);
       })
@@ -117,7 +113,7 @@ export const AdminHotelList = () => {
     description: "",
     image: null,
     count: 0,
-    price_per_night:0,
+    price_per_night: 0,
   });
   const [roomTypeError, setRoomTypeError] = useState(null);
   const [hotelid, setHotelid] = useState("");
@@ -126,8 +122,13 @@ export const AdminHotelList = () => {
   const [isRoomTypeModalOpen, setIsRoomTypeModalOpen] = useState(false);
 
   const handleAddRoomType = () => {
-    console.log(hotelid,"HOTELIDDDDD")
-    if (!newRoomType.name || !newRoomType.description || !newRoomType.image || !newRoomType.price_per_night) {
+    console.log(hotelid, "HOTELIDDDDD");
+    if (
+      !newRoomType.name ||
+      !newRoomType.description ||
+      !newRoomType.image ||
+      !newRoomType.price_per_night
+    ) {
       toast.error("Please fill in all the required fields.");
       return;
     }
@@ -140,10 +141,10 @@ export const AdminHotelList = () => {
     formData.append("description", newRoomType.description);
     formData.append("image", newRoomType.image);
     formData.append("count", newRoomType.count);
-    formData.append("price_per_night",newRoomType.price_per_night)
+    formData.append("price_per_night", newRoomType.price_per_night);
 
     formData.append("hotel", selectedHotelId); // Use selectedHotelId instead of hotelId
-    console.log(newRoomType.price_per_night,"datatatatatt")
+    console.log(newRoomType.price_per_night, "datatatatatt");
     const headers = {
       Authorization: `Bearer ${adminToken}`,
     };
@@ -166,7 +167,7 @@ export const AdminHotelList = () => {
           description: "",
           image: null,
           count: 0,
-          price_per_night:0,
+          price_per_night: 0,
         });
         setIsRoomTypeModalOpen(false);
       })
@@ -310,7 +311,7 @@ export const AdminHotelList = () => {
   };
 
   const handleUpdateHotel = (id) => {
-    e.preventDefault(); 
+    e.preventDefault();
 
     const url = `${baseUrl}customadmin/hotel-details/${id}/update/`;
 
@@ -422,7 +423,10 @@ export const AdminHotelList = () => {
                     <div></div>
                     <button
                       className="bg-blue-700 text-white py-2 px-5 rounded-lg"
-                      onClick={() => fetchLatLong(newHotel.city)}
+                      onClick={(e) => {
+                        e.preventDefault(); // Prevent default form submission behavior
+                        fetchLatLong(newHotel.city);
+                      }}
                     >
                       Search
                     </button>
@@ -965,7 +969,7 @@ export const AdminHotelList = () => {
                         }
                       />
                     </div>
-                    
+
                     <div>
                       <label htmlFor="roomTypePrice">Price</label>
                       <input
@@ -980,7 +984,6 @@ export const AdminHotelList = () => {
                         }
                       />
                     </div>
-                    
 
                     <div className="flex">
                       <button
