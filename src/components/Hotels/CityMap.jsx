@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-
 const CityMap = ({ city }) => {
   const [map, setMap] = useState(null);
   const [mapCenter, setMapCenter] = useState([0, 0]);
@@ -34,6 +33,12 @@ const CityMap = ({ city }) => {
   const onMapLoad = (map) => {
     setMap(map);
   };
+  const customMarkerIcon = L.icon({
+    iconUrl: process.env.PUBLIC_URL + '/assets/custom-marker-icon.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+  });
 
   return (
     <MapContainer
@@ -49,7 +54,7 @@ const CityMap = ({ city }) => {
       }}      whenCreated={onMapLoad}
     >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      <Marker position={mapCenter}>
+      <Marker position={mapCenter} icon={customMarkerIcon}>
         <Popup>{city}</Popup>
       </Marker>
     </MapContainer>
