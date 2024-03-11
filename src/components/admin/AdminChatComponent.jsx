@@ -62,8 +62,8 @@ export const AdminChatComponent = () => {
     if (!bookingId) return;
 
     const newClient = new W3CWebSocket(
-      // `wss://abhimanew.live/ws/chat/${bookingId}/`
-       `ws://localhost:8000/ws/chat/${bookingId}/`
+      `wss://abhimanew.live/ws/chat/${bookingId}/`
+      //  `ws://localhost:8000/ws/chat/${bookingId}/`
     );
     setClient(newClient);
 
